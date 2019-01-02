@@ -19,14 +19,15 @@ class Student(object):
     #age属性没有set方法，表示只读
     @property
     def age(self):
-        return 2019 - self._birth
+        return 2019 - self.birth  #这里其实调用的是birth get方法
 
     def print_info(self):
-        print('name: %s, score: %s, birth: %s, age: %s' % (self.name, self.score, self._birth, self.age))
+        print('name: %s, score: %s, birth: %s, age: %s' % (self.name, self.score, self.birth, self.age))
 
 if __name__ =='__main__':
     s = Student()
     s.name = 'Lisa'
     s.score = 90
-    s.birth = 1985
+    s.birth = 1985 #这里其实调用的是birth set方法
+    #s._birth = 1985  # 这样写没有调用birth set方法，直接给属性赋值了
     s.print_info()
